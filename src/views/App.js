@@ -1,10 +1,12 @@
 import {useState, useEffect} from 'react';
+
+import Question from "../components/Question.js"
 import '../styles/App.css';
 
 const URL = "https://opentdb.com/api.php";
 
 const readQuestions = async () => {
-    let response = await fetch(URL + "?amount=10");
+    let response = await fetch(URL + "?amount=2");
     let questions = await response.json();
     return questions;
 }
@@ -21,7 +23,15 @@ const App = () => {
 
     return (
         <main className="container">
-               {console.log(questions)}
+                {console.log("Container:", questions)}
+                {
+                    
+                        questions.map((question, index) => 
+                            <Question question={question} key={index}/>
+                        )
+                    
+                }
+               
         </main>
     )
 }
