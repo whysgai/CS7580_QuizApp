@@ -10,7 +10,7 @@ const Question = props =>
                 })
             } */}
         </ul>
-    
+        <button onClick={() => props.setPosition(props.position + 1)}>Next</button>        
     </div>
 
 export default Question

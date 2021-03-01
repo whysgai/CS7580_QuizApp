@@ -12,6 +12,7 @@ const readQuestions = async () => {
 }
 
 const App = () => {
+    const [position, setPosition] = useState(0);
     const [questions, setQuestions] = useState([]);
 
     useEffect(() => {
@@ -23,14 +24,15 @@ const App = () => {
 
     return (
         <main className="container">
-                {console.log("Container:", questions)}
-                {
+                {console.log("Container:", questions[position])}
+                <Question question={questions[position]} position={position} setPosition={setPosition}/>
+                {/* {
                     
                         questions.map((question, index) => 
                             <Question question={question} key={index}/>
                         )
                     
-                }
+                } */}
                
         </main>
     )
