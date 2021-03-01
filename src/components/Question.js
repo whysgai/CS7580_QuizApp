@@ -13,8 +13,14 @@ const Question = props =>
                 )
             }
         </ul>
-        {/* <button onClick={() => props.setPosition(props.position + 1)}>Ok</button> */}
-        <button onClick={() => props.setPosition(props.position + 1)}>Next</button>        
+        {
+            !props.answered ?
+                <button onClick={() => props.setAnswered(true)}>Ok</button>
+                :
+                <button onClick={() => props.setPosition(props.position + 1)}>Next</button>  
+        }
+        
+              
     </div>
 
 export default Question

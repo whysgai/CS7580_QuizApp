@@ -43,6 +43,7 @@ const App = () => {
     const [status, setStatus] = useState(STATUS.SUCCESS);
     const [questions, setQuestions] = useState(null);
     const [position, setPosition] = useState(0);
+    const [answered, setAnswered] = useState(false);
     const [selectedAnswer, setSelectedAnswer] = useState("");
 
     useEffect(() => {
@@ -76,6 +77,7 @@ const App = () => {
                                                     question={questions[position]}
                                                     position={position} setPosition={setPosition}
                                                     selectedAnswer={selectedAnswer} setSelectedAnswer={setSelectedAnswer}
+                                                    answered={answered} setAnswered={setAnswered}
                                                 />
                                                 :
                                                 <p>foo3</p>
