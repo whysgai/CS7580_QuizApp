@@ -20,51 +20,65 @@ const readQuestions = async () => {
     return questions;
 }
 
+const processAnswers = question => {
+    console.log("Process question:", question);
+    let allAnswers = [];
+    question.incorrect_answers.map(answer => 
+        allAnswers.push(answer)
+    )
+    allAnswers.push(question.correct_answer);    
+
+    let i, j, k;
+    for (i = 0; i < allAnswers.length; i++) {
+        j = Math.floor(Math.random() * (i + 1));
+        k = allAnswers[i];
+        allAnswers[i] = allAnswers[j];
+        allAnswers[j] = k;
+    }
+
+    return allAnswers;
+}
+
 const App = () => {
     const [status, setStatus] = useState(STATUS.SUCCESS);
     const [position, setPosition] = useState(0);
-    const [questions, setQuestions] = useState([]);
+    const [questions, setQuestions] = useState(null);
 
     useEffect(() => {
         console.log("userEffect")
         readQuestions().then(data => {
             console.log("data:", data);
-            setQuestions(data.results);
+            data.results.map((result, index)=> {
+                result.all_answers = processAnswers(result);
+            })
+            console.log("Post set-questions:", data.results); 
+            setQuestions(data.results);  
         })
     }, []);
 
     return (
         <main className="container">
-                {console.log("Container:", questions[position])}
+                {console.log("Container:", questions)}
                 {
                     status === STATUS.START ?
-                        <></>
+                        <p>foo1</p>
                         :
                         <>
                             {
                                 status === STATUS.LOADING ?
-                                    <>
-                                    </>
+                                    <p>foo2</p>
                                     :
                                     <>
                                         {
-                                            status === STATUS.SUCCESS ?
+                                            status === STATUS.SUCCESS && questions !== null?
                                                 <Question question={questions[position]} position={position} setPosition={setPosition}/>
                                                 :
-                                                <p>foo</p>
+                                                <p>foo3</p>
                                         }
                                     </>
                             }
                         </>
                 }
-                
-                {/* {
-                    
-                        questions.map((question, index) => 
-                            <Question question={question} key={index}/>
-                        )
-                    
-                } */}
                
         </main>
     )
