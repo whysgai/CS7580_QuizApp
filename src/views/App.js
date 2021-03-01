@@ -5,6 +5,15 @@ import '../styles/App.css';
 
 const URL = "https://opentdb.com/api.php";
 
+const STATUS = {
+    START: "start",
+    LOADING: "loading",
+    SUCCESS: "success",
+    FAIL: "fail",
+    DONE: "done"
+}
+
+
 const readQuestions = async () => {
     let response = await fetch(URL + "?amount=2");
     let questions = await response.json();
@@ -12,10 +21,12 @@ const readQuestions = async () => {
 }
 
 const App = () => {
+    const [status, setStatus] = useState(STATUS.SUCCESS);
     const [position, setPosition] = useState(0);
     const [questions, setQuestions] = useState([]);
 
     useEffect(() => {
+        console.log("userEffect")
         readQuestions().then(data => {
             console.log("data:", data);
             setQuestions(data.results);
@@ -25,7 +36,28 @@ const App = () => {
     return (
         <main className="container">
                 {console.log("Container:", questions[position])}
-                <Question question={questions[position]} position={position} setPosition={setPosition}/>
+                {
+                    status === STATUS.START ?
+                        <></>
+                        :
+                        <>
+                            {
+                                status === STATUS.LOADING ?
+                                    <>
+                                    </>
+                                    :
+                                    <>
+                                        {
+                                            status === STATUS.SUCCESS ?
+                                                <Question question={questions[position]} position={position} setPosition={setPosition}/>
+                                                :
+                                                <p>foo</p>
+                                        }
+                                    </>
+                            }
+                        </>
+                }
+                
                 {/* {
                     
                         questions.map((question, index) => 
