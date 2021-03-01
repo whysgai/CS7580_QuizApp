@@ -41,8 +41,9 @@ const processAnswers = question => {
 
 const App = () => {
     const [status, setStatus] = useState(STATUS.SUCCESS);
-    const [position, setPosition] = useState(0);
     const [questions, setQuestions] = useState(null);
+    const [position, setPosition] = useState(0);
+    const [selectedAnswer, setSelectedAnswer] = useState("");
 
     useEffect(() => {
         console.log("userEffect")
@@ -71,7 +72,11 @@ const App = () => {
                                     <>
                                         {
                                             status === STATUS.SUCCESS && questions !== null?
-                                                <Question question={questions[position]} position={position} setPosition={setPosition}/>
+                                                <Question
+                                                    question={questions[position]}
+                                                    position={position} setPosition={setPosition}
+                                                    selectedAnswer={selectedAnswer} setSelectedAnswer={setSelectedAnswer}
+                                                />
                                                 :
                                                 <p>foo3</p>
                                         }
