@@ -48,23 +48,26 @@ const App = () => {
     const [selectedAnswer, setSelectedAnswer] = useState("");
 
     useEffect(() => {
-        console.log("userEffect")
-        readQuestions().then(data => {
-            console.log("data:", data);
-            data.results.map((result, index)=> {
-                result.all_answers = processAnswers(result);
+        if (status === STATUS.LOADING) {
+            console.log("userEffect")
+            readQuestions().then(data => {
+                console.log("data:", data);
+                data.results.map((result, index)=> {
+                    result.all_answers = processAnswers(result);
+                })
+                console.log("Post set-questions:", data.results); 
+                setQuestions(data.results);  
             })
-            console.log("Post set-questions:", data.results); 
-            setQuestions(data.results);  
-        })
+        }        
     }, []);
+
 
     return (
         <main className="container">
                 {console.log("Container:", questions)}
                 {
                     status === STATUS.START ?
-                        <QuizConfig/>
+                        <QuizConfig STATUS={STATUS} setStatus={setStatus}/>
                         :
                         <>
                             {
