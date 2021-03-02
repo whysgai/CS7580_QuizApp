@@ -2,10 +2,9 @@ import categories from '../data/categories'
 
 const QuizConfig = props => 
     <div className="card card-body">
-        {console.log("Categories:", categories.categories)}
         <label>
             Number of questions:
-            <input type="number" min="1" max="100" value="10"/>
+            <input type="number" min="1" max="100"/>
         </label>
         <label>
             Difficulty:
@@ -20,14 +19,14 @@ const QuizConfig = props =>
             <select>
                 {
                     categories.categories.map((category, index) => 
-                        <option>
-                            {console.log("Category: ", category)}
+                        <option key={index}>
                             {category}
                         </option>
                     )
                 }
             </select>
         </label>
+        <button onClick={() => props.setStatus(props.STATUS.LOADING)}>GO</button>
     </div>
 
 export default QuizConfig

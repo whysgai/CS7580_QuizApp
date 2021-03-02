@@ -56,14 +56,18 @@ const App = () => {
                     result.all_answers = processAnswers(result);
                 })
                 console.log("Post set-questions:", data.results); 
-                setQuestions(data.results);  
+                
+                setQuestions(data.results);
+                setStatus(STATUS.SUCCESS);
+                  
             })
         }        
-    }, []);
+    }, [status]);
 
 
     return (
         <main className="container">
+                {console.log("Current Status:", status)}
                 {console.log("Container:", questions)}
                 {
                     status === STATUS.START ?
@@ -76,7 +80,7 @@ const App = () => {
                                     :
                                     <>
                                         {
-                                            status === STATUS.SUCCESS && questions !== null?
+                                            status === STATUS.SUCCESS ?
                                                 <Question
                                                     question={questions[position]}
                                                     position={position} setPosition={setPosition}
