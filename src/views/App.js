@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react';
 
 import Question from "../components/Question.js"
+import QuizConfig from '../components/QuizConfig.js';
 import '../styles/App.css';
 
 const URL = "https://opentdb.com/api.php";
@@ -40,7 +41,7 @@ const processAnswers = question => {
 }
 
 const App = () => {
-    const [status, setStatus] = useState(STATUS.SUCCESS);
+    const [status, setStatus] = useState(STATUS.START);
     const [questions, setQuestions] = useState(null);
     const [position, setPosition] = useState(0);
     const [answered, setAnswered] = useState(false);
@@ -63,7 +64,7 @@ const App = () => {
                 {console.log("Container:", questions)}
                 {
                     status === STATUS.START ?
-                        <p>foo1</p>
+                        <QuizConfig/>
                         :
                         <>
                             {
