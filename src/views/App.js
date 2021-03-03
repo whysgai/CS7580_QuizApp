@@ -59,8 +59,8 @@ const App = () => {
     const [answered, setAnswered] = useState(false);
     const [selectedAnswer, setSelectedAnswer] = useState("");
     const [queryParams, setQueryParams] = useState({num: "2", cat: "any", dif: "any"});
-    // const [score, setScore] = useState({points: 0, correct_answers: []});
-    const [score, setScore] = useState([]);
+    const [score, setScore] = useState({points: 0, correct_answers: []});
+    //const [score, setScore] = useState([]);
 
     useEffect(() => {
         if (status === STATUS.LOADING) {
@@ -82,18 +82,27 @@ const App = () => {
 
     const validateAnswer = () => {
         setAnswered(true);
+        let points = score.points;
         let answers = [];
-        score.map((answer, index) => {
+        score.correct_answers.map((answer, index) => {
             answers.push(answer);
         });        
         if (selectedAnswer === questions[position].correct_answer) {
             console.log("Right!");
+            points++;
             answers.push(true);
-            setScore(answers);
+            setScore({
+                ...score,
+                points: points,
+                correct_answers: answers
+            });
         } else {
             console.log("Wrong!");
             answers.push(false);
-            setScore(answers);
+            setScore({
+                ...score,
+                correct_answers: answers
+            });
         }     
     }
 
