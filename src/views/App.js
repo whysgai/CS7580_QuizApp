@@ -59,7 +59,8 @@ const App = () => {
     const [answered, setAnswered] = useState(false);
     const [selectedAnswer, setSelectedAnswer] = useState("");
     const [queryParams, setQueryParams] = useState({num: "2", cat: "any", dif: "any"});
-    const [score, setScore] = useState(0);
+    // const [score, setScore] = useState({points: 0, correct_answers: []});
+    const [score, setScore] = useState([]);
 
     useEffect(() => {
         if (status === STATUS.LOADING) {
@@ -80,11 +81,20 @@ const App = () => {
     }, [status, queryParams]);
 
     const validateAnswer = () => {
-        console.log("BOO!");
         setAnswered(true);
+        let answers = [];
+        score.map((answer, index) => {
+            answers.push(answer);
+        });        
         if (selectedAnswer === questions[position].correct_answer) {
-            setScore(score + 1);
-        }        
+            console.log("Right!");
+            answers.push(true);
+            setScore(answers);
+        } else {
+            console.log("Wrong!");
+            answers.push(false);
+            setScore(answers);
+        }     
     }
 
 
@@ -92,7 +102,7 @@ const App = () => {
         <main className="container">
                 {console.log("Current Status:", status)}
                 {console.log("Container:", questions)}
-                {console.log("Score is now: " + score)}
+                {console.log("Score is now: ", score)}
                 {
                     status === STATUS.START ?
                         <QuizConfig 
