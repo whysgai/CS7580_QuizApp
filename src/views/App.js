@@ -15,8 +15,9 @@ const STATUS = {
 }
 
 
-const readQuestions = async () => {
-    let response = await fetch(URL + "?amount=2");
+const readQuestions = async (url) => {
+    {console.log("Requesting from: ", url)}
+    let response = await fetch(url);
     let questions = await response.json();
     return questions;
 }
@@ -40,17 +41,30 @@ const processAnswers = question => {
     return allAnswers;
 }
 
+const assembleURL = (queryParams) => {
+    let url = URL + "?amount=" + queryParams.num;
+    if (queryParams.cat !== "any") {
+        url = url + "&category=" + queryParams.cat;
+    }
+    if (queryParams.dif !== "any") {
+        url = url + "&difficulty=" + queryParams.dif; 
+    }
+    return url;
+  }
+
 const App = () => {
     const [status, setStatus] = useState(STATUS.START);
     const [questions, setQuestions] = useState(null);
     const [position, setPosition] = useState(0);
     const [answered, setAnswered] = useState(false);
     const [selectedAnswer, setSelectedAnswer] = useState("");
+    const [queryParams, setQueryParams] = useState({num: "2", cat: "any", dif: "any"});
 
     useEffect(() => {
         if (status === STATUS.LOADING) {
             console.log("userEffect")
-            readQuestions().then(data => {
+            let url = assembleURL(queryParams);
+            readQuestions(url).then(data => {
                 console.log("data:", data);
                 data.results.map((result, index)=> {
                     result.all_answers = processAnswers(result);
@@ -62,7 +76,7 @@ const App = () => {
                   
             })
         }        
-    }, [status]);
+    }, [status, queryParams]);
 
 
     return (
@@ -71,7 +85,10 @@ const App = () => {
                 {console.log("Container:", questions)}
                 {
                     status === STATUS.START ?
-                        <QuizConfig STATUS={STATUS} setStatus={setStatus}/>
+                        <QuizConfig 
+                            STATUS={STATUS} setStatus={setStatus}
+                            queryParams={queryParams} setQueryParams={setQueryParams}
+                        />
                         :
                         <>
                             {
