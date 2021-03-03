@@ -59,6 +59,7 @@ const App = () => {
     const [answered, setAnswered] = useState(false);
     const [selectedAnswer, setSelectedAnswer] = useState("");
     const [queryParams, setQueryParams] = useState({num: "2", cat: "any", dif: "any"});
+    const [score, setScore] = useState(0);
 
     useEffect(() => {
         if (status === STATUS.LOADING) {
@@ -78,11 +79,20 @@ const App = () => {
         }        
     }, [status, queryParams]);
 
+    const validateAnswer = () => {
+        console.log("BOO!");
+        setAnswered(true);
+        if (selectedAnswer === questions[position].correct_answer) {
+            setScore(score + 1);
+        }        
+    }
+
 
     return (
         <main className="container">
                 {console.log("Current Status:", status)}
                 {console.log("Container:", questions)}
+                {console.log("Score is now: " + score)}
                 {
                     status === STATUS.START ?
                         <QuizConfig 
@@ -105,6 +115,7 @@ const App = () => {
                                                             position={position} setPosition={setPosition}
                                                             selectedAnswer={selectedAnswer} setSelectedAnswer={setSelectedAnswer}
                                                             answered={answered} setAnswered={setAnswered}
+                                                            validateAnswer={validateAnswer}
                                                         />
                                                         :
                                                         <>OUT OF QUESTIONS</>

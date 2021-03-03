@@ -15,11 +15,14 @@ const Question = props =>
         </ul>
         {
             !props.answered ?
-                <button onClick={() => props.setAnswered(true)}>Ok</button>
+                <button onClick={props.validateAnswer}>Ok</button>
                 :
-                <button onClick={() => props.setPosition(props.position + 1)}>Next</button>  
+                <div>
+                    <p>Correct answer: {props.question.correct_answer}</p>
+                    <p>Your answer: {props.selectedAnswer}</p>
+                    <button onClick={() => {props.setPosition(props.position + 1); props.setAnswered(false);}}>Next</button> 
+                </div>                 
         }
-        
               
     </div>
 
