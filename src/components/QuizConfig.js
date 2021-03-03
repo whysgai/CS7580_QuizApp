@@ -10,15 +10,19 @@ const QuizConfig = props =>
                         ...props.queryParams,
                         num: e.target.value
                     }
-                )
-                    
-                }
-            
+                )}
             />
         </label>
         <label>
             Difficulty:
-            <select>
+            <select value={props.queryParams.dif}
+                onChange={e => props.setQueryParams(
+                    {
+                        ...props.queryParams,
+                        dif: e.target.value
+                    }
+                )}
+            >
                 <option value="any">Any Difficulty</option>
                 <option value="easy">Easy</option>
                 <option value="medium">Medium</option>
