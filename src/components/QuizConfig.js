@@ -4,7 +4,17 @@ const QuizConfig = props =>
     <div className="card card-body">
         <label>
             Number of questions:
-            <input type="number" min="1" max="50"/>
+            <input type="number" min="1" max="50" value={props.queryParams.num}
+                onChange={e => props.setQueryParams(
+                    {
+                        ...props.queryParams,
+                        num: e.target.value
+                    }
+                )
+                    
+                }
+            
+            />
         </label>
         <label>
             Difficulty:
