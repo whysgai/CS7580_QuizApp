@@ -1,6 +1,5 @@
 export default {
     categories : [
-        "Any Category",
         "General Knowledge",
         "Entertainment: Books",
         "Entertainment: Film",
