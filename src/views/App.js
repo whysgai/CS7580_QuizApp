@@ -54,7 +54,7 @@ const assembleURL = (queryParams) => {
 
 const App = () => {
     const [status, setStatus] = useState(STATUS.START);
-    const [questions, setQuestions] = useState(null);
+    const [questions, setQuestions] = useState([]);
     const [position, setPosition] = useState(0);
     const [answered, setAnswered] = useState(false);
     const [selectedAnswer, setSelectedAnswer] = useState("");
@@ -93,19 +93,25 @@ const App = () => {
                         <>
                             {
                                 status === STATUS.LOADING ?
-                                    <p>foo2</p>
+                                    <p>LOADING</p>
                                     :
                                     <>
                                         {
                                             status === STATUS.SUCCESS ?
-                                                <Question
-                                                    question={questions[position]}
-                                                    position={position} setPosition={setPosition}
-                                                    selectedAnswer={selectedAnswer} setSelectedAnswer={setSelectedAnswer}
-                                                    answered={answered} setAnswered={setAnswered}
-                                                />
+                                                <>{
+                                                    position < questions.length ?
+                                                        <Question
+                                                            question={questions[position]}
+                                                            position={position} setPosition={setPosition}
+                                                            selectedAnswer={selectedAnswer} setSelectedAnswer={setSelectedAnswer}
+                                                            answered={answered} setAnswered={setAnswered}
+                                                        />
+                                                        :
+                                                        <>OUT OF QUESTIONS</>
+                                                }</>
+                                               
                                                 :
-                                                <p>foo3</p>
+                                                <p>COULD NOT LOAD</p>
                                         }
                                     </>
                             }
