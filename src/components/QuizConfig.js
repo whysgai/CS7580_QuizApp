@@ -31,7 +31,14 @@ const QuizConfig = props =>
         </label>
         <label>
             Category:
-            <select>
+            <select value={props.queryParams.cat}
+                onChange={e => props.setQueryParams(
+                    {
+                        ...props.queryParams,
+                        cat: e.target.value
+                    }
+                )}
+            >
                 <option value="any">Any Category</option>
                 {
                     categories.categories.map((category, index) => 
