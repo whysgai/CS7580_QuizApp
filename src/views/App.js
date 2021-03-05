@@ -2,6 +2,7 @@ import {useState, useEffect} from 'react';
 
 import Question from "../components/Question.js"
 import QuizConfig from '../components/QuizConfig.js';
+import Summary from '../components/Summary.js';
 import '../styles/App.css';
 
 const URL = "https://opentdb.com/api.php";
@@ -137,7 +138,7 @@ const App = () => {
                                                             validateAnswer={validateAnswer}
                                                         />
                                                         :
-                                                        <>OUT OF QUESTIONS</>
+                                                        <Summary score={score} />
                                                 }</>
                                                
                                                 :
