@@ -6,8 +6,8 @@ const Summary = props =>
                 <span key={index}>Question {index+1}: {answer ? "Right" : "Wrong"}</span>
             )
         }
-        <button>Retry This Quiz</button>
-        <button>Take Another Quiz</button>
+        <button onClick={() => props.retakeQuiz()}>Retake This Quiz</button>
+        <button onClick={() => props.reset()}>Take Another Quiz</button>
     </div>
 
 export default Summary;

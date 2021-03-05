@@ -15,7 +15,6 @@ const STATUS = {
     DONE: "done"
 }
 
-
 const readQuestions = async (url) => {
     {console.log("Requesting from: ", url)}
     let response = await fetch(url);
@@ -61,7 +60,6 @@ const App = () => {
     const [selectedAnswer, setSelectedAnswer] = useState("");
     const [queryParams, setQueryParams] = useState({num: "2", cat: "any", dif: "any"});
     const [score, setScore] = useState({points: 0, correct_answers: []});
-    //const [score, setScore] = useState([]);
 
     useEffect(() => {
         if (status === STATUS.LOADING) {
@@ -72,11 +70,9 @@ const App = () => {
                 data.results.map((result, index)=> {
                     result.all_answers = processAnswers(result);
                 })
-                console.log("Post set-questions:", data.results); 
-                
+                console.log("Post set-questions:", data.results);
                 setQuestions(data.results);
-                setStatus(STATUS.SUCCESS);
-                  
+                setStatus(STATUS.SUCCESS);             
             })
         }        
     }, [status, queryParams]);
@@ -105,6 +101,17 @@ const App = () => {
                 correct_answers: answers
             });
         }     
+    }
+
+    const retakeQuiz = () => {
+        setScore({points: 0, correct_answers: []});
+        setPosition(0);
+        setStatus(STATUS.SUCCESS);
+    }
+
+    const reset = () => {
+        setScore({points: 0, correct_answers: []});
+        setStatus(STATUS.START);
     }
 
 
@@ -138,7 +145,7 @@ const App = () => {
                                                             validateAnswer={validateAnswer}
                                                         />
                                                         :
-                                                        <Summary score={score} />
+                                                        <Summary score={score} reset={reset} retakeQuiz={retakeQuiz}/>
                                                 }</>
                                                
                                                 :
