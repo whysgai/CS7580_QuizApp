@@ -111,6 +111,7 @@ const App = () => {
 
     const reset = () => {
         setScore({points: 0, correct_answers: []});
+        setPosition(0);
         setStatus(STATUS.START);
     }
 
@@ -143,6 +144,7 @@ const App = () => {
                                                             selectedAnswer={selectedAnswer} setSelectedAnswer={setSelectedAnswer}
                                                             answered={answered} setAnswered={setAnswered}
                                                             validateAnswer={validateAnswer}
+                                                            reset={reset}
                                                         />
                                                         :
                                                         <Summary score={score} reset={reset} retakeQuiz={retakeQuiz}/>

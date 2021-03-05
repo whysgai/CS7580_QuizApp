@@ -5,6 +5,7 @@ const Question = props =>
         {console.log("Question:", props.question)}
         {console.log("Selected answer:", props.selectedAnswer)}
         <p className="card-subtitle">Question #{props.position+1}</p>
+        <button onClick={() => props.reset()}>X</button>
         <h2 className="card-title h5">{props.question.question}</h2>
         <ul>
             {
