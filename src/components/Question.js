@@ -4,7 +4,7 @@ const Question = props =>
     <div className="card card-body">
         {console.log("Question:", props.question)}
         {console.log("Selected answer:", props.selectedAnswer)}
-        <p className="card-subtitle">Question Number</p>
+        <p className="card-subtitle">Question #{props.position+1}</p>
         <h2 className="card-title h5">{props.question.question}</h2>
         <ul>
             {
