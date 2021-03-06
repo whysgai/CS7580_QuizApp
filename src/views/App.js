@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react';
 
 import Loading from '../components/Loading.js';
+import Error from '../components/Error.js';
 import Question from '../components/Question.js';
 import QuizConfig from '../components/QuizConfig.js';
 import Summary from '../components/Summary.js';
@@ -155,7 +156,7 @@ const App = () => {
                                                         <Summary score={score} reset={reset} retakeQuiz={retakeQuiz}/>
                                                 }</>                                               
                                                 :
-                                                <p>COULD NOT LOAD</p>
+                                                <Error reset={reset}/>
                                         }
                                     </>
                             }
