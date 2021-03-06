@@ -1,11 +1,13 @@
 import {useState, useEffect} from 'react';
 
-import Question from "../components/Question.js"
+import Loading from '../components/Loading.js';
+import Question from '../components/Question.js';
 import QuizConfig from '../components/QuizConfig.js';
 import Summary from '../components/Summary.js';
 import '../styles/App.css';
 
-const URL = "https://opentdb.com/api.php";
+//const URL = "https://opentdb.com/api.php";
+const URL = "https://opentb.com/api.php";
 
 const STATUS = {
     START: "start",
@@ -73,6 +75,9 @@ const App = () => {
                 console.log("Post set-questions:", data.results);
                 setQuestions(data.results);
                 setStatus(STATUS.SUCCESS);             
+            }).catch(error => {
+                setStatus(STATUS.FAIL);
+                console.log(error);
             })
         }        
     }, [status, queryParams]);
@@ -131,7 +136,7 @@ const App = () => {
                         <>
                             {
                                 status === STATUS.LOADING ?
-                                    <p>LOADING</p>
+                                    <Loading />
                                     :
                                     <>
                                         {
@@ -148,8 +153,7 @@ const App = () => {
                                                         />
                                                         :
                                                         <Summary score={score} reset={reset} retakeQuiz={retakeQuiz}/>
-                                                }</>
-                                               
+                                                }</>                                               
                                                 :
                                                 <p>COULD NOT LOAD</p>
                                         }
