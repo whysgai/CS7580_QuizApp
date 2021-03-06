@@ -6,7 +6,7 @@ import QuizConfig from '../components/QuizConfig.js';
 import Summary from '../components/Summary.js';
 import '../styles/App.css';
 
-//const URL = "https://opentdb.com/api.php";
+// const URL = "https://opentdb.com/api.php";
 const URL = "https://opentb.com/api.php";
 
 const STATUS = {

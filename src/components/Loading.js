@@ -1,8 +1,11 @@
+import '../styles/loading.css'
+
 const Loading = () => 
     <div className="card card-body loading">
-        <div className="spinner-border spinner-border-xl text-info" role="status"/>
-        <p className="loading-text">Gathering parameters...</p>
-        {
+        <div className="spinner-border text-info loading-spinner" role="status"/>
+        <h3 className="card-title loading-text">Fetching quiz...</h3>
+        {/* <p className="loading-text">Gathering parameters...</p> */}
+        {/* {
             setTimeout(function(){
                 document.getElementsByClassName('loading-text')[0].innerHTML = "Fetching quiz...";
             },5000)
@@ -21,7 +24,7 @@ const Loading = () =>
             setTimeout(function(){
                 document.getElementsByClassName('loading-text')[0].innerHTML = "Igniting engines...";
             },20000)
-        }
+        } */}
         {/* {
             setTimeout(function(){
                 document.getElementsByClassName('loading-text')[0].innerHTML = "Taxying runway...";
