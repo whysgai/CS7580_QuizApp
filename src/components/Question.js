@@ -15,7 +15,7 @@ const Question = props =>
             <div className="answers">
                 {
                     props.question.all_answers.map((answer, index) => 
-                        <Answer key={index} index={index} answer={answer} selectedAnswer={props.selectedAnswer} setSelectedAnswer={props.setSelectedAnswer} answered={props.answered}/>
+                        <Answer key={index} index={index} answer={answer} correct_answer={props.question.correct_answer} selectedAnswer={props.selectedAnswer} setSelectedAnswer={props.setSelectedAnswer} answered={props.answered}/>
                     )
                 }
             </div>
