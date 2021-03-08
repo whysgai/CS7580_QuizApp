@@ -1,0 +1,28 @@
+.card {
+    display: flex;
+}
+
+.question {
+    width: 80%;
+    align-self: center;
+}
+
+.question-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.answers {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.answer {
+    width: 49%;
+}
+
+.answer-label {
+    width: 100%;
+}
