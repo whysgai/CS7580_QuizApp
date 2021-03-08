@@ -2,6 +2,31 @@
     display: flex;
 }
 
+.config {
+    display: flex;
+}
+
+.config-inputs {
+    flex-grow: 2;
+    /* width: 60%; */
+    margin-right: 2vw;
+    
+}
+
+.config-setting {
+    width: 100%;
+}
+
+.config-confirm {
+    /* width: 30%; */
+    flex-basis: 33%
+
+}
+
+.little-button-text {
+    display: none;
+}
+
 .question {
     width: 80%;
     align-self: center;
