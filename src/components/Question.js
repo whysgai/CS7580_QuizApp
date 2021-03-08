@@ -15,19 +15,23 @@ const Question = props =>
             <div className="answers">
                 {
                     props.question.all_answers.map((answer, index) => 
-                        <Answer key={index} index={index} answer={answer} selectedAnswer={props.selectedAnswer} setSelectedAnswer={props.setSelectedAnswer}/>
+                        <Answer key={index} index={index} answer={answer} selectedAnswer={props.selectedAnswer} setSelectedAnswer={props.setSelectedAnswer} answered={props.answered}/>
                     )
                 }
             </div>
             {
-                !props.answered ?
-                    <button onClick={props.validateAnswer}>Ok</button>
-                    :
-                    <div>
-                        <p>Correct answer: {props.question.correct_answer}</p>
-                        <p>Your answer: {props.selectedAnswer}</p>
-                        <button onClick={() => {props.setPosition(props.position + 1); props.setAnswered(false);}}>Next</button> 
-                    </div>                 
+                props.selectedAnswer !== "" ?
+                    <>{
+                        !props.answered ?
+                            <button onClick={props.validateAnswer}>Ok</button>
+                            :
+                            <div>
+                                <p>Correct answer: {props.question.correct_answer}</p>
+                                <p>Your answer: {props.selectedAnswer}</p>
+                                <button onClick={() => {props.setPosition(props.position + 1); props.setAnswered(false);}}>Next</button> 
+                            </div>                 
+                    }</>
+                    :<></>
             }
         </div>
      
