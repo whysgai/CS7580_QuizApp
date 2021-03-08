@@ -75,3 +75,8 @@
 .results-list {
     width: 66%;
 }
+
+.result {
+    display: flex;
+    justify-content: space-between;
+}
