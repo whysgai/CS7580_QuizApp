@@ -13,13 +13,6 @@ const Question = props =>
             <h2 className="card-title text-center">{props.question.question}</h2>
         </div>
         <div className="question card-body">  
-
-            {/* <div className="question-header">
-                <p className="card-subtitle">Question #{props.position+1}</p>
-                <button className="btn btn-outline-dark" onClick={() => props.reset()}>X</button>
-            </div>            
-            <h2 className="card-title text-center">{props.question.question}</h2> */}
-
             <div className="answers">
                 {
                     props.question.all_answers.map((answer, index) => 
