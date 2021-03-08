@@ -2,16 +2,24 @@ import Answer from "./Answer";
 
 
 const Question = props => 
-    <div className="card card-body">
+    <div className="card">
         {console.log("Question:", props.question)}
         {console.log("Selected answer:", props.selectedAnswer)}
-        <div className="question">  
+        <div class="card-header">
             <div className="question-header">
                 <p className="card-subtitle">Question #{props.position+1}</p>
                 <button className="btn btn-outline-dark" onClick={() => props.reset()}>X</button>
             </div>
-            
             <h2 className="card-title text-center">{props.question.question}</h2>
+        </div>
+        <div className="question card-body">  
+
+            {/* <div className="question-header">
+                <p className="card-subtitle">Question #{props.position+1}</p>
+                <button className="btn btn-outline-dark" onClick={() => props.reset()}>X</button>
+            </div>            
+            <h2 className="card-title text-center">{props.question.question}</h2> */}
+
             <div className="answers">
                 {
                     props.question.all_answers.map((answer, index) => 
