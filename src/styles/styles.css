@@ -13,6 +13,21 @@
     align-items: baseline;
 }
 
+.question-results {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.question-result {
+    width: 49%;
+    text-align: center;
+}
+
+.btn-result {
+    width: 100%;
+}
+
 .answers {
     display: flex;
     justify-content: space-between;
