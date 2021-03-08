@@ -5,6 +5,7 @@ const Summary = props =>
         </div>
         <div className="card-body summary">
             <h2 className="text-center">You got {props.score.points}/{props.score.correct_answers.length} questions correct</h2>
+            <div className="summary-spacer"/>
             <ul className="results-list list-group">
             {
                 props.score.correct_answers.map((answer, index) => 
@@ -15,6 +16,7 @@ const Summary = props =>
                 )
             }
             </ul>
+            <div className="summary-spacer"/>
             <button onClick={() => props.retakeQuiz()}>Retake This Quiz</button>
             <button onClick={() => props.reset()}>Take Another Quiz</button>
         </div>

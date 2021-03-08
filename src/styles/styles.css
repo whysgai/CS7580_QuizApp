@@ -72,11 +72,24 @@
     width: 100%;
 }
 
+.summary {
+    display: inline;
+}
+
+/* .summary-spacer {
+    width: 15%;
+    height: 1px;
+} */
+
 .results-list {
-    width: 66%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
 }
 
 .result {
+    width: 66%;
     display: flex;
     justify-content: space-between;
 }
