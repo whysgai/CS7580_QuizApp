@@ -4,7 +4,8 @@ const Answer = props =>
             id={`Answer${props.index}`} type="radio" name="answers"
             checked={props.selectedAnswer === props.answer && !props.answered}
             disabled={props.answered}
-            onChange={() => props.setSelectedAnswer(props.answer)}/>
+            onChange={() => props.setSelectedAnswer(props.answer)}
+        />
         <label className={`btn  answer
             ${!props.answered ? 
                 "btn-outline-secondary" 
@@ -15,9 +16,8 @@ const Answer = props =>
                         : props.correct_answer === props.answer ? 
                             "btn-primary" 
                             : "btn-outline-dark"}        
-        `}
-        
-        htmlFor={`Answer${props.index}`}>
+            `}        
+            htmlFor={`Answer${props.index}`}>
             <h3>{props.answer}</h3>                   
         </label>
     </>
