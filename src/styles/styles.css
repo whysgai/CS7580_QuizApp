@@ -16,16 +16,20 @@
 .question-results {
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
     width: 100%;
+    margin-top: 2vh;
 }
 
 .question-result {
     width: 49%;
     text-align: center;
+
 }
 
 .btn-result {
     width: 100%;
+    margin-top: 1vh;
 }
 
 .answers {
@@ -36,6 +40,7 @@
 
 .answer {
     width: 49%;
+    margin-top: 1vh;
 }
 
 .answer-label {

@@ -21,18 +21,18 @@ const Question = props =>
             </div>
             {
                 props.selectedAnswer !== "" ?
-                    <>{
-                        !props.answered ?
-                            <button className="btn btn-outline-primary btn-result" onClick={props.validateAnswer}><span className="h4">OK</span></button>
-                            :
-                            <>
-                                <div className="question-results">
+                    <div className="question-results">
+                        {
+                            !props.answered ?
+                                <button className="btn btn-outline-primary btn-result" onClick={props.validateAnswer}><span className="h4">OK</span></button>
+                                :
+                                <>
                                     <div className="question-result"><h3>Your answer: {props.selectedAnswer}</h3></div>
                                     <div className="question-result"><h3>Correct answer: {props.question.correct_answer}</h3></div>
-                                </div>
-                                <button className="btn btn-outline-secondary btn-result" onClick={() => {props.setPosition(props.position + 1); props.setAnswered(false);}}><h4>Next</h4></button>
-                            </>                 
-                    }</>
+                                    <button className="btn btn-outline-secondary btn-result" onClick={() => {props.setPosition(props.position + 1); props.setAnswered(false);}}><h4>Next</h4></button>                                    
+                                </>                 
+                        }
+                    </div>
                     :<></>
             }
         </div>
