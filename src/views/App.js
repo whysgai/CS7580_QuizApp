@@ -32,7 +32,7 @@ const processAnswers = question => {
     question.incorrect_answers.map(answer => 
         allAnswers.push(decode(answer))
     )
-    allAnswers.push(question.correct_answer);    
+    allAnswers.push(decode(question.correct_answer));    
 
     let i, j, k;
     for (i = 0; i < allAnswers.length; i++) {

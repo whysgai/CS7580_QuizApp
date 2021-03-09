@@ -38,6 +38,19 @@
     align-items: baseline;
 }
 
+.question-attributes {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 1.5vh;
+    margin-bottom: 0.5vh;
+}
+
+.display-attribute {
+    width: 50%;
+    text-transform: capitalize;
+    text-align: center;
+}
+
 .question-results {
     display: flex;
     justify-content: space-around;

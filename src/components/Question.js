@@ -14,9 +14,9 @@ const Question = props =>
         </div>
         <div className="question card-body">  
         <h2 className="card-title text-center">{props.question.question}</h2>
-            <div>
-                <span className="card-subtitle">Category: {props.question.category}</span>
-                <span className="card-subtitle">Difficulty: {props.question.difficulty}</span>
+            <div className="question-attributes">
+                <span className="card-subtitle display-attribute">Category: {props.question.category}</span>
+                <span className="card-subtitle display-attribute">Difficulty: {props.question.difficulty}</span>
             </div>
             <div className="answers">
                 {
