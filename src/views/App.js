@@ -30,7 +30,7 @@ const processAnswers = question => {
     console.log("Process question:", question);
     let allAnswers = [];
     question.incorrect_answers.map(answer => 
-        allAnswers.push(answer)
+        allAnswers.push(decode(answer))
     )
     allAnswers.push(question.correct_answer);    
 
@@ -43,6 +43,10 @@ const processAnswers = question => {
     }
 
     return allAnswers;
+}
+
+const decode = txt => {
+    return new DOMParser().parseFromString(txt, 'text/html').body.innerText;
 }
 
 const assembleURL = (queryParams) => {
@@ -73,6 +77,7 @@ const App = () => {
                 console.log("data:", data);
                 data.results.map((result, index)=> {
                     result.all_answers = processAnswers(result);
+                    result.question = decode(result.question);
                 })
                 console.log("Post set-questions:", data.results);
                 setQuestions(data.results);
