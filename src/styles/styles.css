@@ -75,7 +75,8 @@
 .summary {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
+    align-items: center;
 }
 
 /* .summary-spacer {
@@ -94,11 +95,12 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+   
 }
 
 .summary-buttons {
     width: 66%;
+    margin-top: 2vh;
 }
 
 .summary-btn {
