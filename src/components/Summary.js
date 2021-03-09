@@ -1,7 +1,8 @@
 const Summary = props => 
     <div className="card">
-        <div class="card-header">
+        <div class="card-header question-header">
             <h2>Results</h2>
+            <button className="btn btn-outline-dark" onClick={() => props.reset()}>X</button>
         </div>
         <div className="card-body summary">
             <h2 className="text-center">You got {props.score.points} out of {props.score.correct_answers.length} questions correct</h2>
