@@ -62,8 +62,8 @@ const QuizConfig = props =>
             <button className="btn btn-success config-confirm" 
                 onClick={() => props.setStatus(props.STATUS.LOADING)}
             >
-                <h2 className="big-button-text">GO</h2>
-                <span className="little-button-text">GO</span>
+                <h2 className="big-button-text">START</h2>
+                <span className="little-button-text">START</span>
             </button>
         </div>
     </div>

@@ -4,8 +4,8 @@ const Summary = props =>
             <h2>Results</h2>
         </div>
         <div className="card-body summary">
-            <h2 className="text-center">You got {props.score.points}/{props.score.correct_answers.length} questions correct</h2>
-            <div className="summary-spacer"/>
+            <h2 className="text-center">You got {props.score.points} out of {props.score.correct_answers.length} questions correct</h2>
+            {/* <div className="summary-spacer"/> */}
             <ul className="results-list list-group">
             {
                 props.score.correct_answers.map((answer, index) => 
@@ -16,9 +16,11 @@ const Summary = props =>
                 )
             }
             </ul>
-            <div className="summary-spacer"/>
-            <button onClick={() => props.retakeQuiz()}>Retake This Quiz</button>
-            <button onClick={() => props.reset()}>Take Another Quiz</button>
+            {/* <div className="summary-spacer"/> */}
+            <div className="btn-group summary-buttons" role="group" aria-label="Buttons">
+                <button className="btn btn-success summary-btn" onClick={() => props.retakeQuiz()}>Retake This Quiz</button>
+                <button className="btn btn-primary summary-btn" onClick={() => props.reset()}>Take Another Quiz</button>
+            </div>
         </div>
     </div>
 

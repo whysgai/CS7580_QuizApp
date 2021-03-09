@@ -73,7 +73,9 @@
 }
 
 .summary {
-    display: inline;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 /* .summary-spacer {
@@ -85,11 +87,20 @@
     display: flex;
     justify-content: center;
     align-content: center;
-    width: 100%;
+    width: 66%;
 }
 
 .result {
-    width: 66%;
+    width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+}
+
+.summary-buttons {
+    width: 66%;
+}
+
+.summary-btn {
+    width: 50%;
 }
