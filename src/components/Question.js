@@ -10,9 +10,14 @@ const Question = props =>
                 <p className="card-subtitle">Question #{props.position+1}</p>
                 <button className="btn btn-outline-dark" onClick={() => props.reset()}>X</button>
             </div>
-            <h2 className="card-title text-center">{props.question.question}</h2>
+            
         </div>
         <div className="question card-body">  
+        <h2 className="card-title text-center">{props.question.question}</h2>
+            <div>
+                <span className="card-subtitle">Category: {props.question.category}</span>
+                <span className="card-subtitle">Difficulty: {props.question.difficulty}</span>
+            </div>
             <div className="answers">
                 {
                     props.question.all_answers.map((answer, index) => 
