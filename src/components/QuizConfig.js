@@ -15,7 +15,7 @@ const QuizConfig = props =>
                         onChange={e => props.setQueryParams(
                             {
                                 ...props.queryParams,
-                                num: e.target.value
+                                num: Math.floor(e.target.value)
                             }
                         )}
                     />
@@ -61,6 +61,7 @@ const QuizConfig = props =>
             </div>
             <button className="btn btn-success config-confirm" 
                 onClick={() => props.setStatus(props.STATUS.LOADING)}
+                disabled={props.queryParams.num < 1 || props.queryParams.num > 50}
             >
                 <h2 className="big-button-text">START</h2>
             </button>
