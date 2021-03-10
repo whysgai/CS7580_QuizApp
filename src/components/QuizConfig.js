@@ -63,7 +63,6 @@ const QuizConfig = props =>
                 onClick={() => props.setStatus(props.STATUS.LOADING)}
             >
                 <h2 className="big-button-text">START</h2>
-                <span className="little-button-text">START</span>
             </button>
         </div>
     </div>
