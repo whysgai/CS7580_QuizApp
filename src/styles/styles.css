@@ -143,6 +143,30 @@
     margin-top: 2vh;
 }
 
+.summary-buttons-500 {
+    display: none;
+}
+
 .summary-btn {
     width: 50%;
+}
+
+@media (max-device-width: 500px) {
+    .summary {
+        justify-content: space-between;
+    }
+
+    .results-list {
+        width: 100%;
+    }
+
+    .summary-buttons {
+        display: none;
+    }
+
+    .summary-buttons-500 {
+        width: 100%;
+        display: block;
+        margin-top: 2vh;
+    }
 }

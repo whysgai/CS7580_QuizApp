@@ -36,11 +36,11 @@ const Question = props =>
                                     {
                                         props.question.correct_answer !== props.selectedAnswer ?
                                             <>
-                                                <div className="question-result"><h3>Your answer: {props.selectedAnswer}</h3></div>
-                                                <div className="question-result"><h3>Correct answer: {props.question.correct_answer}</h3></div>
+                                                <div className="question-result"><h4>Your answer: {props.selectedAnswer}</h4></div>
+                                                <div className="question-result"><h4>Correct answer: {props.question.correct_answer}</h4></div>
                                             </>
                                             :
-                                            <div className="question-result"><h3>Correct!</h3></div>
+                                            <div className="question-result"><h4>Correct!</h4></div>
 
                                     }
                                     
