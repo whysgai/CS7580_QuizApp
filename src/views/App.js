@@ -9,7 +9,7 @@ import '../styles/App.css';
 import '../styles/styles.css';
 
 const URL = "https://opentdb.com/api.php";
-// const URL = "https://opentb.com/api.php";
+//const URL = "https://opentb.com/api.php";
 
 const STATUS = {
     START: "start",

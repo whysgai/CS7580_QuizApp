@@ -170,3 +170,9 @@
         margin-top: 2vh;
     }
 }
+
+.api-error {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
